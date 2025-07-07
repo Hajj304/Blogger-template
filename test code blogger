@@ -1,0 +1,157 @@
+# إضافة أقسام إعلانات Google إلى قالب Blogger: أعلى المقالات، أسفل المقالات، أسفل الصفحة
+
+adsense_template = """
+<b:template xmlns='http://www.w3.org/1999/xhtml'>
+
+  <b:skin><![CDATA[
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(to bottom, #ebf8ff, #ffffff, #bee3f8);
+      color: #2d3748;
+      line-height: 1.8;
+    }
+    header {
+      background-color: #2b6cb0;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav {
+      background: #2c5282;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #2b6cb0;
+    }
+    a {
+      color: #2b6cb0;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #e2e8f0;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+  ]]></b:skin>
+
+  <!-- رأس الموقع -->
+  <b:section id='header' class='header' maxwidgets='1' showaddelement='no'>
+    <b:widget id='Header1' type='Header' title='Almoujiz - مدونة تعليمية'/>
+  </b:section>
+
+  <!-- القائمة العلوية -->
+  <b:section id='navbar' class='navbar' maxwidgets='1' showaddelement='no'>
+    <b:widget id='LinkList1' type='LinkList' title='القائمة العلوية'>
+      <b:includable id='main'>
+        <nav>
+          <a href='#'>الرئيسية</a>
+          <a href='#'>دروس TTS</a>
+          <a href='#'>Python</a>
+          <a href='#'>اتصل بنا</a>
+        </nav>
+      </b:includable>
+    </b:widget>
+  </b:section>
+
+  <!-- إعلان أعلى المقالات -->
+  <b:section id='ads-top' class='ads-top' maxwidgets='1' showaddelement='yes'>
+    <b:widget id='HTML1' type='HTML' title='إعلان أعلى المقالات'>
+      <b:includable id='main'>
+        <div class='ad-top' style='margin: 20px auto; text-align:center;'>
+          <!-- Google AdSense Ad -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+               data-ad-slot="xxxxxxxxxx"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
+
+  <!-- محتوى المدونة -->
+  <b:section id='main' class='main container' maxwidgets='1' showaddelement='no'>
+    <b:widget id='Blog1' type='Blog' title='المقالات' />
+  </b:section>
+
+  <!-- إعلان أسفل المقالات -->
+  <b:section id='ads-bottom' class='ads-bottom' maxwidgets='1' showaddelement='yes'>
+    <b:widget id='HTML2' type='HTML' title='إعلان أسفل المقالات'>
+      <b:includable id='main'>
+        <div class='ad-bottom' style='margin: 30px auto; text-align:center;'>
+          <!-- Google AdSense Ad -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+               data-ad-slot="xxxxxxxxxx"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
+
+  <!-- التذييل -->
+  <b:section id='footer' class='footer' maxwidgets='1' showaddelement='no'>
+    <b:widget id='Text1' type='Text' title='حقوق النشر'>
+      <b:includable id='main'>
+        <footer>
+          &copy; <data:blog.year/> <data:blog.title/> — جميع الحقوق محفوظة
+          <div class='ad-footer' style='margin-top:20px; text-align:center;'>
+            <!-- Google AdSense Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                 data-ad-slot="xxxxxxxxxx"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </footer>
+      </b:includable>
+    </b:widget>
+  </b:section>
+
+</b:template>
+"""
+
+adsense_template_path = "/mnt/data/almoujiz-blogger-with-adsense.xml"
+with open(adsense_template_path, "w", encoding="utf-8") as f:
+    f.write(adsense_template)
+
+adsense_template_path
